@@ -3,7 +3,6 @@ import Hero from './components/Hero'
 import About from './components/About'
 import Skills from './components/Skills'
 import Projects from './components/Projects'
-import Experience from './components/Experience'
 import TechStack from './components/TechStack'
 import Journey from './components/Journey'
 import Contact from './components/Contact'
@@ -24,11 +23,8 @@ export default function App() {
         <AnimatedSection id="skills">
           <Skills />
         </AnimatedSection>
-        <AnimatedSection id="projects">
+        <AnimatedSection id="credentials">
           <Projects />
-        </AnimatedSection>
-        <AnimatedSection id="experience">
-          <Experience />
         </AnimatedSection>
         <AnimatedSection id="stack">
           <TechStack />

@@ -14,9 +14,9 @@ export default function About() {
           >
             <div className="w-full h-full bg-[#2a2a2a] rounded-sm overflow-hidden relative flex items-center justify-center">
               <img
-                src="/images/rohit.png"
-                alt="Rohit Nehte"
-                className="w-full h-full object-cover"
+                src="/images/sundar.png"
+                alt="Sundar Sen"
+                className="w-full h-full object-cover object-top"
               />
             </div>
           </motion.div>
@@ -30,7 +30,7 @@ export default function About() {
             The Developer
           </div>
           <h2 className="font-[Sora] text-[32px] font-semibold leading-[1.3] text-[#e5e2e1] mb-6!">
-            Frontend-focused. Curiosity-driven. Building in public.
+            Backend-focused. Curiosity-driven. Building in public.
           </h2>
           <p className="font-[Inter] text-[18px] leading-[1.6] text-[#c2c6d8] mb-6!">
             {personal.bio1}

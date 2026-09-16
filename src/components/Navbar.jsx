@@ -6,8 +6,7 @@ import { personal } from '../data/portfolio'
 
 const navLinks = [
   { to: 'about', label: 'About' },
-  { to: 'projects', label: 'Projects' },
-  { to: 'experience', label: 'Experience' },
+  { to: 'credentials', label: 'Credentials' },
   { to: 'stack', label: 'Stack' },
   { to: 'contact', label: 'Contact' },
 ]
@@ -52,7 +51,7 @@ export default function Navbar() {
         {/* Resume Button (Desktop) */}
         <a
           href="/files/resume.pdf"
-          download="Rohit_Nehte_Resume.pdf"
+          download="Sundar_Sen_Resume.pdf"
           className="hidden md:inline-flex items-center justify-center px-6! py-3! bg-[#e5e2e1] text-[#131313] font-[JetBrains_Mono] text-[12px] font-bold leading-none tracking-widest hover:scale-105 transition-transform duration-200 rounded-xl"
         >
           Resume

@@ -11,7 +11,7 @@ export default function Footer() {
 
         {/* Copyright */}
         <div className="text-sm text-[#c2c6d8]">
-          © 2026 Rohit Nehte.
+          © 2026 Sundar Sen.
         </div>
       </div>
     </footer>

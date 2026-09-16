@@ -1,8 +1,6 @@
-# Rohit Nehte — Portfolio Website
+# Sundar Sen — Portfolio Website
 
-A modern, interactive portfolio website built with React, Three.js, and Tailwind CSS. Showcasing frontend development skills with 3D graphics, smooth animations, and a sleek dark theme.
-
-**Live Demo:** [rohitnehte.me](https://rohitnehte.me/)
+A modern, interactive portfolio website built with React, Three.js, and Tailwind CSS. Showcasing developer skills with 3D graphics, smooth animations, and a sleek dark theme.
 
 ---
 
@@ -343,12 +341,9 @@ This project is personal work. Feel free to use it as inspiration for your own p
 
 ## 👤 Author
 
-**Rohit Nehte**
-- **Role**: Frontend Developer & BCA Student
+**Sundar Sen**
+- **Role**: Backend Developer & BCA Student (Final Year)
 - **Location**: India
-- **Semester**: 5th
-- **GitHub**: [Rohit-Nehate](https://github.com/Rohit-Nehate)
-- **Portfolio**: [rohitnehte.me](https://rohitnehte.me)
 
 ---
 

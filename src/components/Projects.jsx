@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
-import { Code2, ExternalLink } from 'lucide-react'
-import { projects } from '../data/portfolio'
+import { ExternalLink, Award } from 'lucide-react'
+import { credentials } from '../data/portfolio'
 
 const containerVariants = {
   hidden: {},
@@ -21,10 +21,10 @@ export default function Projects() {
     <div>
       <div className="text-center mb-16!">
         <div className="font-[JetBrains_Mono] text-[12px] font-bold leading-none tracking-widest text-[#b3c5ff] mb-2! uppercase">
-          Work
+          Recognition
         </div>
         <h2 className="font-[Sora] text-[32px] font-semibold leading-[1.3] text-[#e5e2e1]">
-          Selected Projects
+          Certifications & Offers
         </h2>
       </div>
 
@@ -35,66 +35,73 @@ export default function Projects() {
         whileInView="visible"
         viewport={{ once: true, margin: '-100px' }}
       >
-        {projects.map((project, index) => (
+        {credentials.map((item) => (
           <motion.div
-            key={project.id}
-            className="glass-panel rounded-lg overflow-hidden group flex flex-col"
+            key={item.id}
+            className="glass-panel rounded-xl overflow-hidden group flex flex-col border border-white/10 hover:border-[#b3c5ff]/40 transition-all duration-300"
             variants={cardVariants}
             whileHover={{ y: -4 }}
           >
-            {/* Image placeholder area */}
-            <div
-              className="h-56 overflow-hidden relative flex items-center justify-center"
-              style={{
-                background: `linear-gradient(135deg, ${project.color}20, #2a2a2a)`,
-              }}
+            {/* Document Preview */}
+            <a
+              href={item.documentUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="h-64 overflow-hidden relative block bg-[#1a1a1a] group-hover:brightness-105 transition-all duration-500"
+              title="Click to view full document"
             >
-              {project.imageUrl ? (
-                <img src={project.imageUrl} alt={project.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
-              ) : (
-                <span className="font-[Sora] text-3xl text-[#e5e2e1]/10 select-none font-semibold group-hover:text-[#e5e2e1]/20 transition-all duration-500">
-                  {project.title}
-                </span>
-              )}
-              <div className="absolute inset-0 bg-[#b3c5ff]/10 mix-blend-overlay z-10 group-hover:opacity-0 transition-opacity duration-500" />
-            </div>
+              <img
+                src={item.imageUrl}
+                alt={item.title}
+                className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700"
+              />
+              <div className="absolute inset-0 bg-linear-to-t from-[#131313] via-transparent to-transparent opacity-80" />
+              <div className="absolute top-4 right-4 glass-panel px-3! py-1.5! rounded-full flex items-center gap-1.5 text-[11px] font-[JetBrains_Mono] text-[#b3c5ff]">
+                <ExternalLink size={12} />
+                <span>Expand</span>
+              </div>
+            </a>
 
             {/* Body */}
             <div className="p-6! grow flex flex-col">
+              <div className="flex items-center justify-between gap-2 mb-2! text-xs font-[JetBrains_Mono]">
+                <span className="text-[#b3c5ff] font-bold flex items-center gap-1.5">
+                  <Award size={14} />
+                  {item.issuer}
+                </span>
+                <span className="text-[#c2c6d8]/60">{item.date}</span>
+              </div>
+
               <h3 className="font-[Sora] text-xl text-[#e5e2e1] mb-2! font-semibold">
-                {project.title}
+                {item.title}
               </h3>
-              <p className="font-[Inter] text-[16px] leading-[1.6] text-[#c2c6d8] mb-4! grow">
-                {project.desc}
+              <p className="font-[Inter] text-[15px] leading-[1.6] text-[#c2c6d8] mb-4! grow">
+                {item.desc}
               </p>
-              <div className="flex flex-wrap gap-2">
-                {project.tags.map((tag) => (
+
+              <div className="flex flex-wrap gap-2 mb-6!">
+                {item.tags.map((tag) => (
                   <span
                     key={tag}
-                    className="px-3! py-1! rounded-xs bg-[#353534] text-[#e5e2e1] font-[JetBrains_Mono] text-[14px] leading-normal text-xs"
+                    className="px-3! py-1! rounded-xs bg-[#353534] text-[#e5e2e1] font-[JetBrains_Mono] text-[13px] leading-normal"
                   >
                     {tag}
                   </span>
                 ))}
               </div>
-              <div className="mt-auto! pt-4! flex items-center gap-3">
+
+              <div className="mt-auto! pt-4! border-t border-white/10 flex items-center justify-between">
+                <span className="font-[JetBrains_Mono] text-[11px] text-[#c2c6d8]/50">
+                  {item.idNumber}
+                </span>
                 <a
                   target="_blank"
                   rel="noopener noreferrer"
-                  href={project.codeUrl}
-                  className="glass-panel p-2! rounded-xs hover:border-[#b3c5ff]/50 transition-colors"
-                  aria-label="View code"
+                  href={item.documentUrl}
+                  className="inline-flex items-center gap-2 px-4! py-2! bg-[#b3c5ff]/10 hover:bg-[#b3c5ff] text-[#b3c5ff] hover:text-[#002b75] rounded-lg font-[JetBrains_Mono] text-[12px] font-bold transition-all duration-300"
                 >
-                  <Code2 size={16} className="text-[#c2c6d8]" />
-                </a>
-                <a
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  href={project.liveUrl}
-                  className="glass-panel p-2! rounded-xs hover:border-[#b3c5ff]/50 transition-colors"
-                  aria-label="View live"
-                >
-                  <ExternalLink size={16} className="text-[#c2c6d8]" />
+                  View Document
+                  <ExternalLink size={13} />
                 </a>
               </div>
             </div>

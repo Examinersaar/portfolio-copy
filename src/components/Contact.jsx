@@ -1,13 +1,7 @@
 import { useState, useRef } from 'react'
 import { motion } from 'framer-motion'
 import { Send } from 'lucide-react'
-import emailjs from '@emailjs/browser'
 import { socials } from '../data/portfolio'
-
-
-const EMAILJS_SERVICE_ID = 'service_2tl2nuc'
-const EMAILJS_TEMPLATE_ID = 'template_tspko5n'
-const EMAILJS_PUBLIC_KEY = 'vVPTU4RG9EpLRgBCh'
 
 export default function Contact() {
   const formRef = useRef(null)
@@ -22,28 +16,19 @@ export default function Contact() {
     setFormData({ ...formData, [e.target.name]: e.target.value })
   }
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault()
 
     if (!formData.name || !formData.email || !formData.message) return
 
     setStatus('sending')
 
-    try {
-      await emailjs.sendForm(
-        EMAILJS_SERVICE_ID,
-        EMAILJS_TEMPLATE_ID,
-        formRef.current,
-        EMAILJS_PUBLIC_KEY
-      )
+    // Non-functional mock response: provides UI feedback without sending credentials or network requests
+    setTimeout(() => {
       setStatus('success')
       setFormData({ name: '', email: '', message: '' })
       setTimeout(() => setStatus('idle'), 4000)
-    } catch (error) {
-      console.error('EmailJS error:', error)
-      setStatus('error')
-      setTimeout(() => setStatus('idle'), 4000)
-    }
+    }, 600)
   }
 
   return (
@@ -160,30 +145,28 @@ export default function Contact() {
 
         {/* Social icons */}
         <div className="mt-8! pt-8! border-t border-white/10 flex justify-center gap-6">
-          <a
-            target="_blank"
-            href={socials.github}
-            className="text-[#c2c6d8] hover:text-[#b3c5ff] transition-colors duration-200"
-            aria-label="GitHub"
-          >
-            <i className="ri-github-fill text-[24px]"></i>
-          </a>
-          <a
-            target="_blank"
-            href={`mailto:${socials.email}`}
-            className="text-[#c2c6d8] hover:text-[#b3c5ff] transition-colors duration-200"
-            aria-label="Email"
-          >
-            <i className="ri-mail-fill text-[24px]"></i>
-          </a>
-          <a
-            target="_blank"
-            href={socials.instagram}
-            className="text-[#c2c6d8] hover:text-[#b3c5ff] transition-colors duration-200"
-            aria-label="Instagram"
-          >
-            <i className="ri-instagram-fill text-[24px]"></i>
-          </a>
+          {socials.linkedin && socials.linkedin !== '#' && (
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href={socials.linkedin}
+              className="text-[#c2c6d8] hover:text-[#b3c5ff] transition-colors duration-200"
+              aria-label="LinkedIn"
+            >
+              <i className="ri-linkedin-fill text-[24px]"></i>
+            </a>
+          )}
+          {socials.instagram && socials.instagram !== '#' && (
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href={socials.instagram}
+              className="text-[#c2c6d8] hover:text-[#b3c5ff] transition-colors duration-200"
+              aria-label="Instagram"
+            >
+              <i className="ri-instagram-fill text-[24px]"></i>
+            </a>
+          )}
         </div>
       </motion.div>
     </div>
